@@ -27,6 +27,7 @@ public class MinimumBinaryHeap {
 	 * @return Element at the top of the heap.
 	 */
 	public int exractMin() {
+		if(heap.isEmpty()) throw new IllegalArgumentException("Heap is empty");
 		int min = heap.get(0);
 		int leaf = heap.get(heap.size()-1);
 		heap.set(0, leaf);
@@ -57,7 +58,7 @@ public class MinimumBinaryHeap {
 	
 	public void bubbleUp(int pos) {
 		if (pos == 0) return;
-		int parent = (pos)/2;
+		int parent = (pos-1)/2;
 		while (heap.get(pos) < heap.get(parent)) {
 			swap(pos, parent);
 			pos = parent;
@@ -93,8 +94,8 @@ public class MinimumBinaryHeap {
 	 */
 	public boolean remove(int element) {
 		int index = heap.indexOf(element);
-		if (index == heap.size()-1) {
-			heap.remove(heap.size()-1);
+		if (index == -1) {
+			//heap.remove(heap.size()-1);
 			return false;
 		}
 		

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MinimumBinaryHeapTest {
 	
@@ -28,9 +29,8 @@ public class MinimumBinaryHeapTest {
 	public void minHeapifyTest() {
 		heap.minHeapify(result);
 		assertEquals(4, heap.getArray().get(0), 0);
-		assertEquals(5, heap.getArray().get(1), 0);
-		assertEquals(10, heap.getArray().get(2), 0);
-
+		assertEquals(8, heap.getArray().get(1), 0);
+		assertEquals(5, heap.getArray().get(2), 0);
 	}
 	
 	@Test
@@ -61,8 +61,8 @@ public class MinimumBinaryHeapTest {
 		heap.add(8);
 		heap.add(12);
 		assertEquals(4, heap.getArray().get(0), 0);
-		assertEquals(5, heap.getArray().get(1), 0);
-		assertEquals(10, heap.getArray().get(2), 0);
+		assertEquals(8, heap.getArray().get(1), 0);
+		assertEquals(5, heap.getArray().get(2), 0);
 	}
 	
 	@Test
@@ -72,13 +72,13 @@ public class MinimumBinaryHeapTest {
 		heap.add(2);
 		boolean b1 = heap.remove(3);
 
-		assertEquals(true, b1);
+        assertTrue(b1);
 	}
 
 	@Test
 	public void isEmptyTest() {
 		heap = new MinimumBinaryHeap();
-		assertEquals(true, heap.isEmpty());
+        assertTrue(heap.isEmpty());
 	}
 }
 
